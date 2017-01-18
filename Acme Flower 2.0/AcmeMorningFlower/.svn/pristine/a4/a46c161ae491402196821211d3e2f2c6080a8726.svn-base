@@ -1,0 +1,51 @@
+# messages.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+flowerOrder.ticker				= Ticker
+flowerOrder.moment				= Moment
+flowerOrder.address				= Address
+flowerOrder.deliveryDate		= Delivery Date
+flowerOrder.unitPrice			= Price (EUR)
+flowerOrder.status				= Status
+flowerOrder.ok					= Ok
+flowerOrder.introduceValid		= Please, introduce a valid ticker
+flowerOrder.ticker.see			= This is your order ticker, please, be carefully and don't lose it.
+flowerOrder.search				= Search
+flowerOrder.cancel				= Cancel order
+flowerOrder.cancel.error		= Cannot cancel the order. Remember that no cancellation is accepted during the 12 hours before the flower is delivered
+flowerOrder.cancel.conditions	= Remember that no cancellation is accepted during the 12 hours before the flower is delivered.
+
+flowerOrder.creditCard.holderName		Holder name
+flowerOrder.creditCard.brandName		Brand name
+flowerOrder.creditCard.number			Number
+flowerOrder.creditCard.expirationMonth	Expiration month
+flowerOrder.creditCard.expirationYear	Expiration year
+flowerOrder.creditCard.cvvCode			CVV Code
+
+flowerOrder.deliver					Mark as delivered
+
+flowerOrder.sender.name				Name
+flowerOrder.sender.surname			Surname
+flowerOrder.sender.birthdate		Birthdate
+flowerOrder.sender.phoneNumber		Phone number
+flowerOrder.sender.emailAddress		Email address
+
+flowerOrder.recipient.name				Name
+flowerOrder.recipient.surname			Surname
+flowerOrder.recipient.birthdate			Birthdate
+flowerOrder.recipient.phoneNumber		Phone number
+flowerOrder.recipient.emailAddress		Email address
+
+flowerOrder.creditCard			=	Credit card
+flowerOrder.sender				=	Sender
+flowerOrder.recipient			=	Recipient
+
+flowerOrder.totalPrice			= Total
+flowerOrder.save				= Save
+flowerOrder.return				= Return
+request.commit.error	= Commit error

@@ -1,0 +1,48 @@
+package domain;
+
+import java.util.Collection;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class Tag extends DomainEntity{
+	private String keywords;
+	private boolean cancelled;
+	
+
+	public boolean getCancelled() {
+		return cancelled;
+	}
+	public void setCancelled(boolean cancelled) {
+		this.cancelled = cancelled;
+	}
+	@SafeHtml(whitelistType=WhiteListType.NONE)
+	@NotBlank
+	public String getKeywords() {
+		return keywords;
+	}
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+
+
+	//Relationships -------------------------------------------
+	private Collection<Flower> flowers;
+
+	@OneToMany(mappedBy="tag")
+	public Collection<Flower> getFlowers() {
+		return flowers;
+	}
+	public void setFlowers(Collection<Flower> flowers) {
+		this.flowers = flowers;
+	}
+	
+}

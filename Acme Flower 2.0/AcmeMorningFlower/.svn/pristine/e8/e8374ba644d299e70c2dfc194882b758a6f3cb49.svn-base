@@ -1,0 +1,52 @@
+# messages_es.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+flowerOrder.ticker				= Código
+flowerOrder.moment				= Fecha de pedido
+flowerOrder.address				= Dirección
+flowerOrder.deliveryDate		= Fecha de entrega
+flowerOrder.unitPrice			= Precio (EUR)
+flowerOrder.status				= Estado
+flowerOrder.ok					= De acuerdo
+flowerOrder.introduceValid		= Por favor, introduce un código válido
+flowerOrder.ticker.see			= Este es el código necesario para seguir su pedido, procure no perderlo.
+flowerOrder.search				= Buscar
+flowerOrder.cancel				= Cancelar pedido
+flowerOrder.cancel.error		= No se puede cancelar el pedido. Recuerde que no se aceptan cancelaciones 12h antes de su entrega
+flowerOrder.cancel.conditions	= Recuerde que no se aceptan cancelaciones 12h antes de su entrega
+
+flowerOrder.deliver				= Marcar como enviado
+
+flowerOrder.creditCard.holderName		Propietario
+flowerOrder.creditCard.brandName		Banco
+flowerOrder.creditCard.number			Numero
+flowerOrder.creditCard.expirationMonth	Mes de expiración
+flowerOrder.creditCard.expirationYear	Año de expiración
+flowerOrder.creditCard.cvvCode			Código CVV
+
+flowerOrder.sender.name				Nombre
+flowerOrder.sender.surname			Apellidos
+flowerOrder.sender.birthdate		Fecha de nacimiento
+flowerOrder.sender.phoneNumber		Número de teléfono
+flowerOrder.sender.emailAddress		Correo electrónico
+
+flowerOrder.recipient.name				Nombre
+flowerOrder.recipient.surname			Apellidos
+flowerOrder.recipient.birthdate			Fecha de nacimiento
+flowerOrder.recipient.phoneNumber		Número de teléfono
+flowerOrder.recipient.emailAddress		Correo electrónico
+flowerOrder.totalPrice			= Total
+
+flowerOrder.save				Guardar
+flowerOrder.return				= Volver
+
+flowerOrder.creditCard			=	Tarjeta de crédito
+flowerOrder.sender				=	Remitente
+flowerOrder.recipient			=	Receptor
+
+request.commit.error	= Error de guardado

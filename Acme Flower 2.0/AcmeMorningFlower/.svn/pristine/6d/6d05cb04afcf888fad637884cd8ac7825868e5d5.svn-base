@@ -1,0 +1,24 @@
+# messages_es.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+doughnut.name			=	Nombre
+doughnut.ingredients	=   Ingredientes
+doughnut.calories		=	Calorias
+doughnut.deleted		=   Borrado
+
+doughnut.create			=	Crear
+doughnut.cancell			=	Cancelar
+doughnut.uncancell			=	Dejar de cancelar
+doughnut.save				=	Guardar
+doughnut.return			=	Volver
+doughnut.edit				=	Editar
+
+doughnut.assignedFlowers	=	Flores con esta etiqueta
+
+doughnut.cancell.error		=	No se ha podido cancelar la etiqueta
+doughnut.commit.error	= Error de guardado

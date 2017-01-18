@@ -1,0 +1,61 @@
+package domain;
+
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.URL;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class Doughnut extends DomainEntity{
+	private String name;
+	private String ingredients;
+	private int calories;
+	private boolean deleted;
+	
+	@NotBlank
+	@SafeHtml(whitelistType=WhiteListType.NONE)
+	public String getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(String ingredients) {
+		this.ingredients = ingredients;
+	}
+	@Min(0)
+	public int getCalories() {
+		return calories;
+	}
+	public void setCalories(int calories) {
+		this.calories = calories;
+	}
+	public boolean isDeleted() {
+		return deleted;
+	}
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+	@NotBlank
+	@SafeHtml(whitelistType=WhiteListType.NONE)
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}	
+}

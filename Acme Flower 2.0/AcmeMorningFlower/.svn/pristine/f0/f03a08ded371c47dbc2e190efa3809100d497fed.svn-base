@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin1" />
+		<property name="password" value="e00cf25ad42683b3df678c61f42c6bda" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="admin2" />
+		<property name="password" value="c84258e9c39059a89ab77d846ddab909" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Other domain beans come here -->
+
+	<!-- ADMINISTRATORS -->
+
+	<bean id="admin1" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount1" />
+	</bean>
+
+	<bean id="admin2" class="domain.Administrator">
+		<property name="userAccount" ref="userAccount2" />
+	</bean>
+
+	<!-- TAGS -->
+	<bean id="tag1" class="domain.Tag">
+		<property name="keywords" value="friendship"/>
+		<property name="cancelled" value="false" />
+		<property name="flowers">
+			<list>
+				<ref bean="flower1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="tag2" class="domain.Tag">
+		<property name="keywords" value="love, passion"/>
+		<property name="cancelled" value="false" />
+		<property name="flowers">
+			<list>
+				<ref bean="flower2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="tag3" class="domain.Tag">
+		<property name="keywords" value="friendship, love"/>
+		<property name="cancelled" value="false" />
+		<property name="flowers">
+			<list>
+				<ref bean="flower3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="tag4" class="domain.Tag">
+		<property name="keywords" value="remorse"/>
+		<property name="cancelled" value="true" />
+		<property name="flowers">
+			<list>
+				<ref bean="flower4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="tag5" class="domain.Tag">
+		<property name="keywords" value="help"/>
+		<property name="cancelled" value="true" />
+		<property name="flowers">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- FLOWERS -->
+	<bean id="flower1" class="domain.Flower">
+		<property name="vulgarName" value="Margarita europea" />
+		<property name="scientificName" value="Bellis perennis" />
+		<property name="unitPrice" value="2.0" />
+		<property name="url"
+			value="https://upload.wikimedia.org/wikipedia/commons/1/1d/Ma%C3%9Fliebchen.JPG" />
+		<property name="deleted" value="false" />
+		<property name="tag" ref="tag1" />
+		<property name="flowerOrders">
+			<list>
+				<ref bean="order1"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="flower2" class="domain.Flower">
+		<property name="vulgarName" value="Rosa de Damasco" />
+		<property name="scientificName" value="Gole mohamadi" />
+		<property name="unitPrice" value="2.5" />
+		<property name="url"
+			value="https://upload.wikimedia.org/wikipedia/commons/5/5a/Gole_mohamadi.JPG" />
+		<property name="deleted" value="false" />
+		<property name="tag" ref="tag2" />
+		<property name="flowerOrders">
+			<list>
+				<ref bean="order2"/>
+				<ref bean="order3"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="flower3" class="domain.Flower">
+		<property name="vulgarName" value="Violeta" />
+		<property name="scientificName" value="Calydorea xiphioides" />
+		<property name="unitPrice" value="1.5" />
+		<property name="url"
+			value="https://upload.wikimedia.org/wikipedia/commons/4/4c/Calydorea_xiphioides_%28Poepp.%29_Esp._%28pabloendemico%29.jpg" />
+		<property name="deleted" value="true" />
+		<property name="tag" ref="tag3" />
+		<property name="flowerOrders">
+			<list>
+				<ref bean="order4"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="flower4" class="domain.Flower">
+		<property name="vulgarName" value="Capuchina" />
+		<property name="scientificName" value="Tropaeolum majus" />
+		<property name="unitPrice" value="1.5" />
+		<property name="url"
+			value="https://upload.wikimedia.org/wikipedia/commons/8/87/Tropaeolum_majus_2005_G1.jpg" />
+		<property name="deleted" value="true" />
+		<property name="tag" ref="tag4" />
+		<property name="flowerOrders">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<!-- Doughnut -->
+	<bean id="doughnut1" class="domain.Doughnut">
+		<property name="name" value="doughnut1"/>
+		<property name="ingredients" value="ingredient 1" />
+		<property name="calories" value="350"/>
+		<property name="deleted" value="false" />
+	</bean>	
+	<bean id="doughnut2" class="domain.Doughnut">
+		<property name="name" value="doughnut2"/>
+		<property name="ingredients" value="ingredient 1,ingredient 2" />
+		<property name="calories" value="550"/>
+		<property name="deleted" value="true" />
+	</bean>		
+	<!-- ORDERS -->
+	<bean id="order1" class="domain.FlowerOrder">
+		<property name="ticker" value="20150309-ahsdahdsaus232131" />
+		<property name="moment" value="03/09/2015 17:50" />
+		<property name="address" value="C/ Sample 1" />
+		<property name="deliveryDate" value="12/03/2015"/>		
+		<property name="totalPrice" value="4.42" />
+		<property name="creditCard" ref="credit1" />
+		<property name="status" value="DELIVERED" />
+		<property name="sender" ref="customer1" />
+		<property name="recipient" ref="customer5" />
+		<property name="flower" ref="flower1" />
+	</bean>
+	<bean id="order2" class="domain.FlowerOrder">
+		<property name="ticker" value="20150309-ahsawwawqa32131" />
+		<property name="moment" value="03/09/2015 17:55" />
+		<property name="address" value="C/ Sample 1" />
+		<property name="deliveryDate" value="12/03/2015"/>
+		<property name="totalPrice" value="5.0" />
+		<property name="creditCard" ref="credit1" />
+		<property name="status" value="DELIVERED" />
+		<property name="sender" ref="customer2" />
+		<property name="recipient" ref="customer6" />
+		<property name="flower" ref="flower2" />
+	</bean>
+	<bean id="order3" class="domain.FlowerOrder">
+		<property name="ticker" value="20150309-ahsaSWWQAQW32131" />
+		<property name="moment" value="03/22/2015 13:15" />
+		<property name="address" value="C/ Sample 2" />
+		<property name="deliveryDate" value="12/07/2015"/>
+		<property name="totalPrice" value="5.0" />
+		<property name="creditCard" ref="credit2" />
+		<property name="status" value="PENDING" />
+		<property name="sender" ref="customer3" />
+		<property name="recipient" ref="customer7" />
+		<property name="flower" ref="flower2" />
+		<property name="doughnut" ref="doughnut1" />
+	</bean>
+	<bean id="order4" class="domain.FlowerOrder">
+		<property name="ticker" value="20150309-ahsawwaGFHDHT31" />
+		<property name="moment" value="06/06/2015 11:15" />
+		<property name="address" value="C/ Sample 3" />
+		<property name="deliveryDate" value="09/09/2015"/>
+		<property name="totalPrice" value="3.8" />
+		<property name="creditCard" ref="credit3" />
+		<property name="status" value="PENDING" />
+		<property name="sender" ref="customer4" />
+		<property name="recipient" ref="customer8" />
+		<property name="flower" ref="flower3" />
+		<property name="doughnut" ref="doughnut1" />
+	</bean>
+	<!-- COMMENTS -->
+	<bean id="comment1" class="domain.Comment">
+		<property name="nick" value="alab ado"/>
+		<property name="text" value="comment1"/>
+		<property name="creationMoment" value="03/09/2015 16:40"/>
+		<property name="url" value=""/>
+		<property name="flower" ref="flower1"/>
+		<property name="responses">
+			<list></list>
+		</property>
+	</bean>
+	<bean id="comment2" class="domain.Comment">
+		<property name="nick" value="Anonymous"/>
+		<property name="text" value="comment2"/>
+		<property name="creationMoment" value="03/09/2015 16:50"/>
+		<property name="url" value=""/>
+		<property name="flower" ref="flower1"/>
+		<property name="responses">
+			<list><ref bean="comment3"/></list>
+		</property>
+		
+	</bean>
+	<bean id="comment3" class="domain.Comment">
+		<property name="nick" value="alab ado"/>
+		<property name="text" value="comment3"/>
+		<property name="creationMoment" value="03/09/2015 16:55"/>
+		<property name="url" value=""/>
+		<property name="flower" ref="flower1"/>
+		<property name="responses">
+			<list></list>
+		</property>
+		<property name="parent" ref="comment2"/>
+	</bean>	
+	<!-- SHIPPING COST AN TAX -->
+	<bean id="additionalCost" class="domain.AdditionalCost">
+		<property name="shippingCost" value="1.5"/>
+		<property name="taxPercent" value="21.0" />
+	</bean>
+	<!-- Currency -->
+	<bean id="currency1" class="domain.Currency">
+		<property name="changeValue" value="1.0"/>
+		<property name="name" value="Euro" />
+	</bean>
+	<bean id="currency2" class="domain.Currency">
+		<property name="changeValue" value="1.09740 "/>
+		<property name="name" value="USD" />
+	</bean>
+	<bean id="currency3" class="domain.Currency">
+		<property name="changeValue" value="1.43168 "/>
+		<property name="name" value="CAD" />
+	</bean>
+	<bean id="currency4" class="domain.Currency">
+		<property name="changeValue" value="4.14411 "/>
+		<property name="name" value="PLN" />
+	</bean>
+	<bean id="currency5" class="domain.Currency">
+		<property name="changeValue" value="3.67563 "/>
+		<property name="name" value="BRL" />
+	</bean>
+
+	<!-- Credit cards -->
+	<bean id="credit1" class="domain.CreditCard">
+		<property name="holderName" value="Ivan Chernov" />
+		<property name="brandName" value="Raiffeisenbank" />
+		<property name="number" value="4007879345191649" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvvCode" value="234" />
+	</bean>
+	<bean id="credit2" class="domain.CreditCard">
+		<property name="holderName" value="Ronald Norton" />
+		<property name="brandName" value="HSBC" />
+		<property name="number" value="4648901568491087" />
+		<property name="expirationMonth" value="05" />
+		<property name="expirationYear" value="2020" />
+		<property name="cvvCode" value="831" />
+	</bean>
+	<bean id="credit3" class="domain.CreditCard">
+		<property name="holderName" value="Anja Rauswersen" />
+		<property name="brandName" value="Deutsche Bank" />
+		<property name="number" value="4004682661955677" />
+		<property name="expirationMonth" value="06" />
+		<property name="expirationYear" value="2016" />
+		<property name="cvvCode" value="475" />
+	</bean>
+
+	<bean id="credit4" class="domain.CreditCard">
+		<property name="holderName" value="Paul Mitterwitz" />
+		<property name="brandName" value="Deutsche Bank" />
+		<property name="number" value="4470724000370914" />
+		<property name="expirationMonth" value="06" />
+		<property name="expirationYear" value="2017" />
+		<property name="cvvCode" value="251" />
+	</bean>
+	<bean id="credit5" class="domain.CreditCard">
+		<property name="holderName" value="Birgit Nüssel" />
+		<property name="brandName" value="Deutsche Bank" />
+		<property name="number" value="4240461527084269" />
+		<property name="expirationMonth" value="06" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvvCode" value="251" />
+	</bean>
+	<bean id="credit6" class="domain.CreditCard">
+		<property name="holderName" value="Harry Coulson" />
+		<property name="brandName" value="HSBC" />
+		<property name="number" value="4722768018551698" />
+		<property name="expirationMonth" value="11" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvvCode" value="221" />
+	</bean>
+	<bean id="credit7" class="domain.CreditCard">
+		<property name="holderName" value="Betsy Braddock" />
+		<property name="brandName" value="HSBC" />
+		<property name="number" value="4108722081864953" />
+		<property name="expirationMonth" value="02" />
+		<property name="expirationYear" value="2019" />
+		<property name="cvvCode" value="181" />
+	</bean>
+	<bean id="credit8" class="domain.CreditCard">
+		<property name="holderName" value="Jeff Goldblum" />
+		<property name="brandName" value="HSBC" />
+		<property name="number" value="4693660356672647" />
+		<property name="expirationMonth" value="03" />
+		<property name="expirationYear" value="2017" />
+		<property name="cvvCode" value="179" />
+	</bean>
+	<bean id="credit9" class="domain.CreditCard">
+		<property name="holderName" value="Kate Pride" />
+		<property name="brandName" value="HSBC" />
+		<property name="number" value="4382935953723381" />
+		<property name="expirationMonth" value="10" />
+		<property name="expirationYear" value="2016" />
+		<property name="cvvCode" value="208" />
+	</bean>
+	<bean id="credit10" class="domain.CreditCard">
+		<property name="holderName" value="Manuel Rocha" />
+		<property name="brandName" value="Banco Santander" />
+		<property name="number" value="4796724429713436" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvvCode" value="208" />
+	</bean>
+	<!-- Customers -->
+	<bean id="customer1" class="domain.Customer">
+		<property name="name" value="customer1" />
+		<property name="surname" value="surname1" />
+		<property name="birthdate" value="10/03/1980" />
+		<property name="phoneNumber" value="+3421232211" />
+		<property name="emailAddress" value="customer1@gmail.com" />
+	</bean>
+	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="customer2" />
+		<property name="surname" value="surname2" />
+		<property name="birthdate" value="15/12/1975" />
+		<property name="phoneNumber" value="+34212sdadasd11" />
+		<property name="emailAddress" value="customer2@gmail.com" />
+	</bean>
+	<bean id="customer3" class="domain.Customer">
+		<property name="name" value="customer3" />
+		<property name="surname" value="surname3" />
+		<property name="birthdate" value="14/07/1980" />
+		<property name="phoneNumber" value="+342sadasdasfgsa" />
+		<property name="emailAddress" value="customer3@gmail.com" />
+	</bean>
+	<bean id="customer4" class="domain.Customer">
+		<property name="name" value="customer3" />
+		<property name="surname" value="surname3" />
+		<property name="birthdate" value="14/07/1980" />
+		<property name="phoneNumber" value="+342sadasdasfgsa" />
+		<property name="emailAddress" value="customer3@gmail.com" />
+	</bean>
+	
+	<bean id="customer5" class="domain.Customer">
+		<property name="name" value="customer5" />
+		<property name="surname" value="surname5" />
+		<property name="birthdate" value="10/03/1980" />
+		<property name="phoneNumber" value="+3421232211" />
+		<property name="emailAddress" value="customer5@gmail.com" />
+	</bean>
+	<bean id="customer6" class="domain.Customer">
+		<property name="name" value="customer6" />
+		<property name="surname" value="surname6" />
+		<property name="birthdate" value="15/12/1975" />
+		<property name="phoneNumber" value="+34212sdadasd11" />
+		<property name="emailAddress" value="customer6@gmail.com" />
+	</bean>
+	<bean id="customer7" class="domain.Customer">
+		<property name="name" value="customer7" />
+		<property name="surname" value="surname7" />
+		<property name="birthdate" value="14/07/1980" />
+		<property name="phoneNumber" value="+342sadasdasfgsa" />
+		<property name="emailAddress" value="customer7@gmail.com" />
+	</bean>
+	<bean id="customer8" class="domain.Customer">
+		<property name="name" value="customer8" />
+		<property name="surname" value="surname8" />
+		<property name="birthdate" value="14/07/1980" />
+		<property name="phoneNumber" value="+342sadasdasfgsa" />
+		<property name="emailAddress" value="customer8@gmail.com" />
+	</bean>
+	
+
+</beans>

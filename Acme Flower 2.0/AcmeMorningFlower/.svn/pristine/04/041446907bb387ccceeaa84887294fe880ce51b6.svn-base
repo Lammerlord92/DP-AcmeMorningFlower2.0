@@ -1,0 +1,23 @@
+# messages.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+
+tag.keywords		=	Keywords
+tag.cancelled		=   Cancelled
+
+tag.create			=	Create
+tag.cancell			=	Cancell
+tag.uncancell			=	Uncancell
+tag.save				=	Save
+tag.return			=	Return
+tag.edit				=	Edit
+
+tag.assignedFlowers	=	Flowers with this tag
+
+tag.cancell.error		= Can't cancell the tag
+tag.commit.error	= Commit error

@@ -1,0 +1,30 @@
+# messages_es.properties
+#
+# Copyright (C) 2013 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+flower.vulgarName		=	Nombre vulgar
+flower.scientificName	=	Nombre científico
+flower.unitPrice		=	Precio(EUR)
+flower.url				=	URL
+flower.deleted			=	Borrado
+flower.tag.keywords		=	Keywords
+
+flower.listComment		=	Comentarios
+
+flower.newComment		= 	Comentar
+flower.newOrder			=	Pedir
+
+flower.search			=	Buscar
+flower.create			=	Crear
+flower.delete			=	Borrar
+flower.undelete			=	Dejar de borrar
+flower.save				=	Guardar
+flower.return			=	Volver
+flower.edit				=	Editar
+
+flower.delete.error		=	No se ha podido borrar la flor
+flower.commit.error	= Error de guardado
